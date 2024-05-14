@@ -4,6 +4,8 @@ import "./styles.css";
 import BouncingZip from "./components/BouncingZip";
 import UncompressWindow from "./components/UncompressWindow";
 import PortfolioContent from "./components/PortfolioContent";
+import ReactiveBackground from "./components/ReactiveBackground";
+import Window from "./components/Window";
 
 const App = () => {
   const [isUncompressing, setIsUncompressing] = useState(false);
@@ -18,12 +20,15 @@ const App = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      {!isUncompressed && !isUncompressing && (
-        <BouncingZip onClick={handleZipClick} />
-      )}
-      {isUncompressing && <UncompressWindow onComplete={() => {}} />}
-      {isUncompressed && <PortfolioContent />}
+    <div className="relative w-screen h-screen overflow-hidden">
+      {isUncompressed && <ReactiveBackground />}
+      <div className="absolute inset-0 flex items-center justify-center">
+        {!isUncompressed && !isUncompressing && (
+          <BouncingZip onClick={handleZipClick} />
+        )}
+        {isUncompressing && <UncompressWindow onComplete={() => {}} />}
+        {isUncompressed && <PortfolioContent />}
+      </div>
     </div>
   );
 };

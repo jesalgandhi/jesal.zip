@@ -10,10 +10,10 @@ const UncompressWindow = ({ onComplete }) => {
 
   return (
     <motion.div
-      className="fixed inset-0 flex items-center justify-center bg-gray-100 bg-opacity-75"
-      initial={{ scale: 0 }}
+      className="fixed inset-0 flex items-center justify-center bg-opacity-75"
+      initial={{ scale: 0.9 }}
       animate={{ scale: 1 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.25 }}
     >
       <Window width="w-96" height="h-auto" title="WinRar(UNLICENSED)">
         <p>Expanding “jesal.zip”...</p>
