@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { motion, useDragControls } from "framer-motion";
 
-const Window = ({ width, height, title, children }) => {
+const Window = ({ width, height, title, children, position }) => {
   const dragControls = useDragControls();
 
   const startDrag = (event) => {
@@ -10,7 +10,11 @@ const Window = ({ width, height, title, children }) => {
 
   return (
     <motion.div
-      className={`bg-white rounded-lg shadow-lg ${width} ${height} overflow-hidden cursor-default`}
+      className={`absolute ${
+        position ? position : ""
+      } bg-white rounded-lg shadow-lg 
+      ${width} ${height} 
+      overflow-hidden cursor-default`}
       drag
       dragControls={dragControls}
       dragListener={false}
@@ -21,7 +25,6 @@ const Window = ({ width, height, title, children }) => {
         right: window.innerWidth,
         bottom: window.innerHeight,
       }}
-      style={{ position: "absolute" }}
     >
       <div
         className="flex items-center justify-between bg-gray-800 text-white px-3 py-1 rounded-t-lg cursor-move"

@@ -3,9 +3,10 @@ import "./index.css";
 import "./styles.css";
 import BouncingZip from "./components/BouncingZip";
 import UncompressWindow from "./components/UncompressWindow";
-import PortfolioContent from "./components/PortfolioContent";
+import ReadMeWindow from "./components/ReadMeWindow";
+import ImageWindow from "./components/ImageWindow";
 import ReactiveBackground from "./components/ReactiveBackground";
-import Window from "./components/Window";
+import { motion } from "framer-motion";
 
 const App = () => {
   const [isUncompressing, setIsUncompressing] = useState(false);
@@ -21,13 +22,32 @@ const App = () => {
 
   return (
     <div className="relative w-screen h-screen overflow-hidden">
-      {isUncompressed && <ReactiveBackground />}
+      {isUncompressing && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 3 }}
+          className="absolute inset-0"
+        >
+          <ReactiveBackground />
+        </motion.div>
+      )}
+      {isUncompressed && (
+        <div className="absolute inset-0">
+          <ReactiveBackground />
+        </div>
+      )}
       <div className="absolute inset-0 flex items-center justify-center">
         {!isUncompressed && !isUncompressing && (
           <BouncingZip onClick={handleZipClick} />
         )}
         {isUncompressing && <UncompressWindow onComplete={() => {}} />}
-        {isUncompressed && <PortfolioContent />}
+        {isUncompressed && (
+          <>
+            <ReadMeWindow />
+            <ImageWindow />
+          </>
+        )}
       </div>
     </div>
   );

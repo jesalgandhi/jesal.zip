@@ -10,10 +10,10 @@ const BouncingZip = ({ onClick }) => {
     <motion.div
       className={`flex flex-col justify-center items-center h-screen p-1 rounded-lg`}
       animate={{
-        // y: [0, -10, 0],
+        y: [0, -10, 0],
         scale: isHovered ? 1.1 : 1,
       }}
-      // transition={{ repeat: Infinity, duration: 1.25 }}
+      transition={{ repeat: Infinity, duration: 1.25 }}
       style={{ cursor: "pointer", width: 100, height: 100 }}
       onClick={onClick}
       onHoverStart={() => setIsHovered(true)}
