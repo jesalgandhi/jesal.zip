@@ -11,8 +11,8 @@ const ImageWindow = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
-      <Window width="min-w-48 max-w-xs" title="jesal.png">
+    // <div className="flex flex-col items-center justify-center min-h-screen">
+      <Window width="min-w-48 max-w-xs" title="📷 jesal.png">
         <img src={headshot} alt="jesal headshot" />
         <div>
           <p className="text-gray-500 text-xs text-center">Size: 3.8 MB</p>
@@ -23,7 +23,7 @@ const ImageWindow = () => {
           </p>
         </div>
       </Window>
-    </div>
+    // </div>
   );
 };
 
