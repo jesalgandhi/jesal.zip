@@ -5,6 +5,7 @@ import BouncingZip from "./components/BouncingZip";
 import UncompressWindow from "./components/UncompressWindow";
 import ReadMeWindow from "./components/ReadMeWindow";
 import ImageWindow from "./components/ImageWindow";
+import ResumeWindow from "./components/ResumeWindow";
 import ReactiveBackground from "./components/ReactiveBackground";
 import { motion } from "framer-motion";
 
@@ -43,10 +44,23 @@ const App = () => {
         )}
         {isUncompressing && <UncompressWindow onComplete={() => {}} />}
         {isUncompressed && (
-          <>
-            <ReadMeWindow />
-            <ImageWindow />
-          </>
+          <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex justify-center p-4">
+              <div className="w-full max-w-md">
+                <ReadMeWindow />
+              </div>
+            </div>
+            <div className="flex justify-center p-4">
+              <div className="w-full max-w-md">
+                <ImageWindow />
+              </div>
+            </div>
+            <div className="flex justify-center p-4">
+              <div className="w-full max-w-md">
+                <ResumeWindow />
+              </div>
+            </div>
+          </div>
         )}
       </div>
     </div>

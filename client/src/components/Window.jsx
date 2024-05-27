@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { motion, useDragControls } from "framer-motion";
 
-const Window = ({ width, height, title, children, position }) => {
+const Window = ({ width, height, title, children }) => {
   const dragControls = useDragControls();
 
   const startDrag = (event) => {
@@ -10,11 +10,7 @@ const Window = ({ width, height, title, children, position }) => {
 
   return (
     <motion.div
-      className={`absolute ${
-        position ? position : ""
-      } bg-white rounded-lg shadow-lg 
-      ${width} ${height} 
-      overflow-hidden cursor-default`}
+      className={`relative bg-white rounded-lg shadow-lg ${width} ${height} overflow-hidden cursor-default`}
       drag
       dragControls={dragControls}
       dragListener={false}
@@ -35,7 +31,7 @@ const Window = ({ width, height, title, children, position }) => {
           <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
           <div className="w-3 h-3 bg-green-500 rounded-full"></div>
         </div>
-        <span className="text-sm">{title}</span>
+        <span className="text-sm font-mono">{title}</span>
         <div></div>
       </div>
       <div className="bg-white p-4 h-full" style={{ userSelect: "text" }}>

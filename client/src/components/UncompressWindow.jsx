@@ -15,14 +15,14 @@ const UncompressWindow = ({ onComplete }) => {
       animate={{ scale: 1 }}
       transition={{ duration: 0.25 }}
     >
-      <Window width="w-96" height="h-auto" title="WinRar(UNLICENSED)">
+      <Window width={"w-80 md:w-96"} height="h-auto" title="Archive Utility">
         <p>Expanding “jesal.zip”...</p>
         <div className="w-full bg-gray-200 rounded-full h-2.5 mt-2">
           <motion.div
             className="bg-blue-600 h-2.5 rounded-full"
             initial={{ width: 0 }}
             animate={{ width: "100%" }}
-            transition={{ duration: 3 }} // Sync with the uncompress time
+            transition={{ duration: 3 }}
           ></motion.div>
         </div>
         <button className="mt-2 bg-gray-300 text-gray-800 px-4 py-1 rounded">

@@ -12,17 +12,19 @@ const ImageWindow = () => {
 
   return (
     // <div className="flex flex-col items-center justify-center min-h-screen">
-      <Window width="min-w-48 max-w-xs" title="📷 jesal.png">
-        <img src={headshot} alt="jesal headshot" />
-        <div>
-          <p className="text-gray-500 text-xs text-center">Size: 3.8 MB</p>
-          <p className="text-gray-500 text-xs text-center">
-            <button onClick={handleDownload}>
-              Download Uncompressed Image
-            </button>
-          </p>
-        </div>
-      </Window>
+    <Window width="min-w-48 max-w-xs" title="📷 jesal.png">
+      <img src={headshot} alt="jesal headshot" />
+      <div>
+        <p className="text-gray-500 text-xs text-center font-mono pt-2">
+          Size: 3.8 MB
+        </p>
+        <p className="text-gray-500 text-xs text-center">
+          <button onClick={handleDownload} className="font-mono">
+            Download Uncompressed Image
+          </button>
+        </p>
+      </div>
+    </Window>
     // </div>
   );
 };
