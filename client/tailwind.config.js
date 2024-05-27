@@ -2,7 +2,30 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        "gradient-to-r": "linear-gradient(90deg, #38b2ac, #68d391)",
+        "gradient-hover": "linear-gradient(90deg, #68d391, #38b2ac)",
+      },
+      backgroundClip: {
+        text: "text",
+      },
+      textFillColor: {
+        transparent: "transparent",
+      },
+      colors: {
+        "teal-500": "#38b2ac",
+        "green-500": "#68d391",
+        "gray-500": "#a0aec0",
+      },
+    },
+  },
+  variants: {
+    extend: {
+      backgroundImage: ["hover"],
+      transform: ["hover"],
+      scale: ["hover"],
+    },
   },
   plugins: [],
 };

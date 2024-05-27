@@ -39,7 +39,10 @@ const BouncingZip = ({ onClick }) => {
             backgroundColor: "rgba(59, 130, 246, 0.7)",
           }}
         >
-          <motion.p animate={{ color: isHovered ? "white" : "black" }}>
+          <motion.p
+            animate={{ color: isHovered ? "white" : "black" }}
+            className="font-mono"
+          >
             jesal.zip
           </motion.p>
         </motion.div>

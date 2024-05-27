@@ -5,20 +5,41 @@ import BouncingZip from "./components/BouncingZip";
 import UncompressWindow from "./components/UncompressWindow";
 import ReadMeWindow from "./components/ReadMeWindow";
 import ImageWindow from "./components/ImageWindow";
-import ResumeWindow from "./components/ResumeWindow";
+import ProjectsWindow from "./components/ProjectsWindow";
 import ReactiveBackground from "./components/ReactiveBackground";
 import { motion } from "framer-motion";
 
 const App = () => {
   const [isUncompressing, setIsUncompressing] = useState(false);
   const [isUncompressed, setIsUncompressed] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleZipClick = () => {
     setIsUncompressing(true);
     setTimeout(() => {
       setIsUncompressing(false);
       setIsUncompressed(true);
+      setIsLoading(false);
     }, 3000);
+  };
+
+  const windowVariants = {
+    hidden: { opacity: 0 },
+    visible1: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 2 },
+    },
+    visible2: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 2 },
+    },
+    visible3: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 2 },
+    },
   };
 
   return (
@@ -44,22 +65,41 @@ const App = () => {
         )}
         {isUncompressing && <UncompressWindow onComplete={() => {}} />}
         {isUncompressed && (
-          <div className="flex flex-wrap justify-center gap-4">
-            <div className="flex justify-center p-4">
-              <div className="w-full max-w-md">
-                <ReadMeWindow />
+          <div className="absolute inset-0 overflow-y-auto flex justify-center p-4 md:p-4">
+            {!isLoading && (
+              <div className="grid grid-cols-1 gap-2 md:gap-2">
+                <motion.div
+                  initial={{ opacity: 0, x: -100 }}
+                  animate="visible1"
+                  variants={windowVariants}
+                  className="flex justify-center p-2 md:p-0"
+                >
+                  <div className="w-full max-w-md">
+                    <ReadMeWindow />
+                  </div>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, x: 100 }}
+                  animate="visible2"
+                  variants={windowVariants}
+                  className="flex justify-center p-2 md:p-0"
+                >
+                  <div className="w-full max-w-md">
+                    <ImageWindow />
+                  </div>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 100 }}
+                  animate="visible3"
+                  variants={windowVariants}
+                  className="flex justify-center p-2 md:mb-8"
+                >
+                  <div className="w-full max-w-md mb-4">
+                    <ProjectsWindow />
+                  </div>
+                </motion.div>
               </div>
-            </div>
-            <div className="flex justify-center p-4">
-              <div className="w-full max-w-md">
-                <ImageWindow />
-              </div>
-            </div>
-            <div className="flex justify-center p-4">
-              <div className="w-full max-w-md">
-                <ResumeWindow />
-              </div>
-            </div>
+            )}
           </div>
         )}
       </div>
