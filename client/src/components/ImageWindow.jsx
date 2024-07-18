@@ -4,7 +4,7 @@ import headshot from "../assets/headshot.png";
 
 const ImageWindow = () => {
   return (
-    <Window width="2/8" title="📷 me.png">
+    <Window title="📷 me.png">
       <img src={headshot} alt="jesal headshot" />
     </Window>
   );
