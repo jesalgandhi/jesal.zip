@@ -105,6 +105,23 @@ const ReadMeWindow = () => {
             }}
           />
         </div>
+        <div className="webring font-mono text-xl space-x-6 lowercase text-pg-green transform transition-transform duration-300 hover:-translate-y-1">
+          <a href="https://pg-webring.vercel.app">pixl-garden Webring</a>
+        </div>
+        <div className="webring_refs font-mono text-xl space-x-6 lowercase text-pg-green">
+          <a
+            href="https://pg-webring.vercel.app/prev?site=https://jesal.zip"
+            className="inline-block transform transition-transform duration-300 hover:-translate-y-1"
+          >
+            Prev
+          </a>
+          <a
+            href="https://pg-webring.vercel.app/next?site=https://jesal.zip"
+            className="inline-block transform transition-transform duration-300 hover:-translate-y-1"
+          >
+            Next
+          </a>
+        </div>
         <div className="flex space-x-4 mt-2">
           <a
             href="https://github.com/jesalgandhi"
